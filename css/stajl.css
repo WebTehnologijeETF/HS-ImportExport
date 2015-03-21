@@ -7,23 +7,26 @@ body {
   line-height: 1.75em;
 		font-weight: 300;
     letter-spacing: 1px;
-  text-align: center;
+  text-align: left;
   color: #3a3939;
 		text-shadow: 0 0 0.5px rgba(58,57,57,0.25);
     background-color: white;
 }
 
+.navigator{
+    text-align: center;
+}
 
-
-#menulista {
+.menulista {
   text-align: left;
   display: inline;
   margin: 0;
   padding: 15px 4px 17px 0;
   list-style: none;
-
+    
 }
-#menulista li {
+.menulista li {
+    text-align: center;
   font: bold 12px/18px sans-serif;
   display: inline-block;
   margin-right: -4px;
@@ -34,141 +37,321 @@ body {
 
 }
 
-#menulista a{
+.menulista a{
+    text-align: center;
     color:rgba(11, 11, 11, 0.78);
-    
+    text-decoration: none;
 }
 
 
-#menulista li:hover {
-  background: rgba(28, 163, 28, 0.82);
+.menulista li:hover {
+  
   color: #fff;
 }
-#menulista li ul {
-  padding: 0;
-  position: absolute;
-  top: 48px;
-  left: 0;
-  width: 150px;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  display: none;
-  opacity: 0;
-  visibility: hidden;
 
-}
-#menulista li ul li { 
-  background: #555; 
-  display: block; 
+.menulista li:hover a{
   color: #fff;
-  text-shadow: 0 -1px 0 #000;
-}
-#menulista li ul li:hover { background: #666; }
-#menulista li:hover ul {
-  display: block;
-  opacity: 1;
-  visibility:visible;
 }
 
-#menu{
-    
+.menu{
+    text-align: center;
     overflow:inherit;
 }
-#sadrzaj{
+.sadrzaj{
+    
    top:20px;
-    position:relative;
    /* border: 1px black;*/
     height: auto;
     display: block;
     overflow:inherit;
      margin-left: 100px;
-    margin-right: 100px;
+    margin-right: 98px;
 }
 
-#B_slika{
+.B_slika{
     float: left;
     width: 40%;
 }
 
-#b_slika{
+.b_slika{
     float: left;
     width: 100%;
 }
-#b_tekst{
+.b_tekst{
     text-align: left;
    float: right;
  width: 60%;   
 }
 
-#B{
+.aboutus_div{
+    margin-top: 0px;
+    top:0px;
+    bottom:0px;
    /* border: 1px solid black;*/
-
+    padding-left: 20px;
    /*position: relative;*/
     height: auto;
     overflow: hidden;
 }
-#B p{
- top: 0px:   
-    
-}
-#desni{
-    font-family: fantasy;
-     border: 1px solid black;
-    position:static;
-    float: right;
-    width: 20%;
-    height: 1000px;
+
+.aboutus_div h1,p{
+    top: 0px;   
+    text-align: center;
 }
 
-#lijevi{
-    text-align: center;
+
+.lijevi{
+    margin-top: 20px;
+    text-align: left;
     font-family:Gabriela;
-    background-color: rgba(144, 238, 144, 0.76);
-    position: sticky;
+   
     float: left;
     width: 18%;
     height: auto;
+    color: white;
+   
    
 }
 
-#navigator{
+.lijevi h1{
+    height: auto;
+    bottom: 0;
+    text-align: center;
+}
+.lijeva_lista{
+    display:block;
+    padding-left: 0px;
+    top:0px;
+    width: 100%;
+    height: auto;
+    list-style: none;
+    text-align: center;
+}
+
+.lijeva_lista li a{
+    text-align: center;
+    color: white;
+}
+
+.lijeva_lista li{
+    
+  font: bold 12px/18px sans-serif;
+  
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+    height: auto;
+    background: rgba(17, 101, 13, 0);
+  cursor: pointer;
+}
+
+.lijeva_lista li:hover {
+  background: rgba(42, 54, 42, 0.82);
+  color: #fff;
+}
+
+.sredina{
+    margin-top:20px;
+    float: right;
+    width: 81%;
+    
+}
+
+.navigator{
     
     display: inline;
     width: 500px;
-    
+    overflow:hidden;
+    clear: both;
 }
 
-#kateg_lista{
-    margin-top: -10px;
-    list-style: circle;
+
+.menulista .home{
+    background: rgba(28, 163, 28, 0.82);
+    
+}
+.menulista .home a{
+    color: white;
+}
+
+aside q{
+    font-style: italic;
+    text-align: center;
+}
+.slika12{
+ width: 100%;   
+    clear:both;
+}
+
+.slika1{
+    float: left;
+   position: relative;
+    margin-top: 20px;
+    
+    height: 150px;
+    width:0%;
+    overflow: hidden;
+    
+}
+.slika2{
+    float: left;
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+   overflow: hidden;    
+}
+
+.slika3{
+    float: left;
+    position: relative;
+    margin-top: 20px;
+    height: 150px;
+    width:0%;
+   
+   overflow: hidden;
+}
+
+
+.whatwedo_div {
+    margin-top: 0px;
+    top:0px;
+    bottom:0px;
+    /*border: 1px solid black;*/
+    padding-left: 20px;
+   /*position: relative;*/
+    height: auto;
+    overflow: hidden;
+}
+.whatwedo_article p{
     text-align: left;
 }
-#kateg_lista li {
-    list-style:disc;
-    
+.readmore {
+	background-color:#616c64;
+	
+	border-radius:28px;
+	border:1px solid #151916;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	padding:0px 10px;
+	text-decoration:none;
+}
+.readmore:hover {
+	background-color:#343931;
+}
+.readmore:active {
+	position:relative;
+	top:1px;
 }
 
-#kateg_lista li ul li{
-    list-style:circle;
-    
+.products_article{   
+    overflow: hidden;
 }
 
-#desni p {
-    margin-top: 0px;
+.products_article h1{
+    text-align: center;
+}
+.products_a{
+    margin: 0px 5px 5px 5px;
+   
+    overflow: hidden;
+    clear: both;
     height: auto;
-    background: #1b5c0b;
+}
+
+.products_a p{
+    text-align: left;
+}
+.p_aa{
+    height: 200px;
     width: 100%;
-    font-size: 25px;
-    color: white;
+    background-color: red;
+    clear: both;
+}
+.p_ab{
+    text-align: center;
+}
+.product_a1{
+    width: 49%;
+   
+    float: left;
+    
 }
 
-#menulista a .home{
-    background: #31bc46;
-    color: white;
-
+.product_a2{
+    width: 49%;
+   
+    float: right;
+    
+}
+.partners_article {
+    overflow: hidden;
+}
+.partners_article h1{
+    text-align: center;
+}
+.partners_div{
+   
+    width: 100%;
+    clear: both;
 }
 
+.partners{
+    margin: 0 5px 5px 5px;
+   
+    overflow: hidden;
+}
+.partner1{
+    
+    height: auto;
+    width:auto;
+    overflow: hidden;
+    float: left;
+    padding-left: 37px;
+    padding-right: 37px;
+}
+
+.partner1_div{
+    
+    margin: 2px 5px 5px 5px;
+    
+    width: 140px;
+	height: 140px;
+	border-radius: 70px;
+    
+}
+.round_img{
+    width: 140px;
+	height: 140px;
+	border-radius: 50px;
+    box-shadow: 10px 10px 5px #383535;
+}
+.footer{
+    text-align: center;
+    width: 100%;
+    
+    overflow: hidden;
+    color: white;
+    height: 30px;
+}
+.validator{
+    margin: 0;
+    float: right;
+}
+
+.lijevi,.footer,.menulista li:hover{
+    background: rgba(28, 163, 28, 0.82);
+}
+
+.sredina_godine article p{
+    text-align: left;
+}
+
+        
 /* ----------------------summary page----------------------------------- */
 
 
@@ -206,5 +389,8 @@ tbody td:hover {
 background-color:darkgreen;
 }
 
+/*-------------------------products page----------------------------------*/
 
-
+#oranges img{
+    float:right;
+}
