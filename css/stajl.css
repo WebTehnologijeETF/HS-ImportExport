@@ -1,4 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Gabriela);
+@import url(http://www.markmurray.co/codepen/entypostyle.css);
+*, *:after, *:before {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 /* ----------------------------------home page-----------------------------------------------------------*/
 body {
@@ -23,7 +29,7 @@ body {
   margin: 0;
   padding: 15px 4px 17px 0;
   list-style: none;
-    
+    overflow: hidden;
 }
 .menulista li {
     text-align: center;
@@ -96,7 +102,7 @@ body {
 
 .aboutus_div h1,p{
     top: 0px;   
-    text-align: center;
+    text-align: left;
 }
 
 
@@ -336,7 +342,7 @@ aside q{
     
     overflow: hidden;
     color: white;
-    height: 30px;
+    
 }
 .validator{
     margin: 0;
@@ -475,7 +481,7 @@ textarea {
 
 input:hover, textarea:hover,
 input:focus, textarea:focus {
-	border-color: 1px solid #C9C9C9;
+	border: 1px solid #C9C9C9;
 	box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
 	
 }
@@ -510,6 +516,84 @@ input:focus, textarea:focus {
 #name{
     width:215px;
 }
+
+.container {
+    background-color: transparent;
+  padding-top: 20px;
+    padding-bottom: 20px;
+  position:absolute;
+   right: 100px;
+    overflow: hidden;
+}
+
+.row {
+  float: right;
+}
+.row i {
+  cursor: pointer;
+  display: inline-block;
+ 
+  transition: all 0.15s ease;
+}
+.row1  {
+  background: transparent;
+}
+.row1  i {
+  color: white;
+  padding: 10px;
+  position: relative;
+  background: transparent;
+}
+.row1  i:hover {
+  border-radius: 50%;
+}
+.row1  i:not(:first-child) {
+  margin-left: 1em;
+}
+.row1  i:nth-child(1) {
+  color: #3b5998;
+  border: 2px solid #3b5998;
+}
+.row1  i:nth-child(1):hover {
+  color: white;
+  background: #3b5998;
+}
+.row1  i:nth-child(2) {
+  color: #00a0d1;
+  border: 2px solid #00a0d1;
+}
+.row1  i:nth-child(2):hover {
+  color: white;
+  background: #00a0d1;
+}
+.row1  i:nth-child(3) {
+  color: #db4a39;
+  border: 2px solid #db4a39;
+}
+.row1  i:nth-child(3):hover {
+  color: white;
+  background: #db4a39;
+}
+.row1  i:nth-child(4) {
+  color: #c8232c;
+  border: 2px solid #c8232c;
+}
+.row1  i:nth-child(4):hover {
+  color: white;
+  background: #c8232c;
+}
+.row1  i:nth-child(5) {
+  color: #ea4c89;
+  border: 2px solid #ea4c89;
+}
+.row1  i:nth-child(5):hover {
+  color: white;
+  background: #ea4c89;
+}
+
+
+
+
 
 
 
