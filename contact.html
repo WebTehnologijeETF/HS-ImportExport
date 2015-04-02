@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <title>HS_ImportExport - World of import & export</title>
 <link rel="stylesheet" type="text/css" href="css/stajl.css">
+<script src="js/javascript.js"></script>
 </head>
 	
-
 <body>
 <div class='container'>
   <div class='row1'><i class='icon-facebook'></i><i class='icon-twitter'></i><i class='icon-googleplus'></i></div>
@@ -25,26 +25,51 @@
 	</nav>
 </div>
 	<div class="sadrzaj">	
+	<div id="forma">
 	<form class="form">
 		
 		<p class="name">
-			<input type="text" name="name" id="name" placeholder="Haris Spahic" />
-			<label for="name">Name</label>
+			<label for="name">Name: </label>
+			<input type="text" name="name" id="name" placeholder="Haris Spahic">
+			
 		</p>
 		
 		<p class="email">
-			<input type="text" name="email" id="email" placeholder="mail@example.com" />
-			<label for="email">Email</label>
-		</p>	
-	
-		<p class="text">
-			<textarea name="text" placeholder="Write something to us" /></textarea>
+			<label for="email">Email: </label>
+			<input type="text" name="email" id="email" placeholder="mail@example.com">			
 		</p>
-	
-		<p class="submit">
-			<input type="submit" value="Send" />
+		
+		<p class="cb">
+		<input type="checkbox" name="cb_name" id="checkbox" onclick="kliknuto(this);">
+		<label>Forward email</label>
+		</p>
+		
+		<p class="femail">			
+			<input type="text" name="email" id="femailcb" placeholder="Forward to: mail@example.com">
+		</p>		
+		
+		<p class="subject">
+			<label for="email">Subject: </label>
+			<input type="text" name="subject" id="subject" placeholder="subject">
+			
+		</p>
+		
+		
+		
+		<p class="text">
+			<textarea id="ta" name="text" placeholder="Write something to us" /></textarea>
+		</p>
+		
+		<p class="submit" >
+		<button id="submit" onclick="return validacija();">Send</button>
+			
 		</p>
 	</form>
+	</div>
+	<div class="mapa">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d367258.1339626932!2d17.830928507135614!3d44.017175197667164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sba!4v1427988695523"></iframe>
+	</div>
+	
 <footer class="footer">Copyright &reg; Haris Spahic 2015
 		<p class="validator">
 					<a href="http://jigsaw.w3.org/css-validator/check/referer">
