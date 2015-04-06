@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>HS_ImportExport - World of import & export</title>
 <link rel="stylesheet" type="text/css" href="css/stajl.css">
+<script src="js/javascript.js"></script>
 </head>
 	
 
@@ -18,7 +19,14 @@
 		<ul class="menulista">
 			<li class="home"><a href="index.html">Home</a></li>
 			<li><a href="about.html">About Us</a></li>
-			<li><a href="products.html">Products</a></li>
+			<li onmouseover="showMenu()" onmouseout="hideMenu()"><a href="products.html" >Products</a>
+			<ul id="menu" style="display:none" onmouseover="showMenu()" >
+				<a href="products.html#oranges">Oranges</a>
+				<a href="products.html#apples">Apples</a>
+				<a href="products.html#onions">Onions</a>
+				<a href="products.html#potatoes">Potatoes</a>
+			</ul>
+			</li>
 			<li><a href="summary.html">Summary</a></li>
 			<li><a href="contact.html">Contact Us</a></li>
 			
@@ -51,7 +59,7 @@
 				<ul class="lijeva_lista">
 					<li><a href="#aboutus_article">About Us</a></li>
 					<li><a href="#whatwedo_article">What We do?</a></li>
-					<li><a href="#products_article">+Products</a></li>
+					<li><a href="#products_article">Products</a></li>
 					<li><a href="#partners_article">Partners</a></li>
 				</ul>
 		</article>

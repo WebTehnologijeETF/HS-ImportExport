@@ -1,11 +1,27 @@
 
 window.onload= function(){
     //document.body.style.backgroundColor = "red";
-    document.getElementById('femailcb').style.display="none";
+    
+   document.getElementById('femailcb').style.display="none";
     
     
 }
 var cekirano=false;
+
+function promjeniboju(el){
+}
+
+function showMenu(){
+   document.getElementById("menu").style.display="inline-block";
+   document.getElementById("menu").style.clear="both";
+  
+    
+ }
+ function hideMenu(){
+   document.getElementById("menu").style.display="none";
+ }
+
+
 function validacija(){
     var ime= document.getElementById('name').value;
     var email = document.getElementById('email').value;

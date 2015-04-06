@@ -24,12 +24,13 @@ body {
 }
 
 .menulista {
-  text-align: left;
-  display: inline;
+  text-align: center;
+  display: block;
   margin: 0;
   padding: 15px 4px 17px 0;
   list-style: none;
     overflow: hidden;
+    clear: both;
 }
 .menulista li {
     text-align: center;
@@ -59,10 +60,31 @@ body {
   color: #fff;
 }
 
-.menu{
+
+
+/*--------------------------submenu-----------------------------*/
+#menu a{
+    transition: 0.2s;
+    border-radius: 5%;    
+    clear: both;
     text-align: center;
-    overflow:inherit;
+    
+    padding: 18px 18px;
+    
 }
+
+
+
+
+#menu a:hover{
+    overflow: hidden;
+    
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color:darkslategray;
+    
+}
+
 .sadrzaj{
     
    top:20px;
