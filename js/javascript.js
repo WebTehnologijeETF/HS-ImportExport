@@ -14,7 +14,7 @@ function promjeniboju(el){
 function showMenu(){
    document.getElementById("menu").style.display="inline-block";
    document.getElementById("menu").style.clear="both";
-  
+    
     
  }
  function hideMenu(){

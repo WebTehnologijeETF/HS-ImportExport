@@ -31,6 +31,7 @@ body {
   list-style: none;
     overflow: hidden;
     clear: both;
+    transition: 1s;
 }
 .menulista li {
     text-align: center;
@@ -60,7 +61,9 @@ body {
   color: #fff;
 }
 
-
+#menu{
+    transition: 1s;
+}
 
 /*--------------------------submenu-----------------------------*/
 #menu a{
@@ -71,6 +74,11 @@ body {
     
     padding: 18px 18px;
     
+}
+
+
+.menulista li{
+    transition: 0.3s;
 }
 
 
