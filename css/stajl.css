@@ -63,16 +63,17 @@ body {
 
 #menu{
     transition: 1s;
+    
 }
 
 /*--------------------------submenu-----------------------------*/
-#menu a{
+#menu li{
     transition: 0.2s;
     border-radius: 5%;    
     clear: both;
     text-align: center;
     
-    padding: 18px 18px;
+    padding: 0px 3px;
     
 }
 
@@ -81,17 +82,19 @@ body {
     transition: 0.3s;
 }
 
-
-
-
-#menu a:hover{
-    overflow: hidden;
-    
-    padding-top: 12px;
-    padding-bottom: 12px;
-    background-color:darkslategray;
-    
+.menulista li:hover{
+    border-radius: 2%;
+    transition: 0.2s;
+    padding: 15px;
 }
+
+#menu li:hover{
+ padding: 8px;
+    margin: -25px 10px;
+    background-color:darkslategray;
+}
+
+
 
 .sadrzaj{
     
@@ -545,7 +548,8 @@ input:focus, textarea:focus {
 }
 
 .form p{
-    
+   
+    display: inline-block;
     text-align:left;
     
 }
@@ -556,9 +560,10 @@ input:focus, textarea:focus {
     width:330px;
     text-align: left;
     overflow: hidden;
+    display: inline-block;
 }
 #femailcb{
-    display: none;
+    display: inline-block;
 }
 #name{
     width:330px;
@@ -568,14 +573,29 @@ input:focus, textarea:focus {
 #forma{
     width: 40%;
     float: left;
-    overflow: hidden;
+    overflow:auto;
     padding-right: 5px;
-    
+    display: inline-block;
 }
 #forma p{
     float: right;
+    display: inline-block;
+}
+.servisniDiv{
+	
+	height: 100px;
+   
+   display: inline-block;
+    margin-bottom: 0;
+}
+
+.servisniDiv p{
+   display: block;
+    margin: 1px;
+    padding: 1px;
     
 }
+
 
 .submit{
     float: right;
@@ -585,7 +605,7 @@ input:focus, textarea:focus {
     width: 50%;
     margin-top:35px;
     height: 435px;
-    position:sticky;
+    
     float: right;
 }
 

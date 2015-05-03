@@ -1,0 +1,64 @@
+<div id="forma">
+	<form class="form">
+		
+		<p class="name">
+			<label for="name">Name: </label>
+			<input type="text" name="name" id="name" placeholder="Haris Spahic">
+			
+		</p>
+		
+		<p class="email">
+			<label for="email">Email: </label>
+			<input type="text" name="email" id="email" placeholder="mail@example.com">			
+		</p>
+		
+		<p class="cb">
+		<input type="checkbox" name="cb_name" id="checkbox" onclick="kliknuto(this);">
+		<label>Forward email</label>
+		</p>
+		
+		<p class="femail">			
+			<input type="text" name="email" id="femailcb" placeholder="Forward to: mail@example.com">
+		</p>		
+		
+		<p class="subject">
+			<label for="email">Country: </label>
+			<input type="text" name="subject" id="subject" value="Bosnia and Herzegovina" disabled>
+			
+		</p>
+		<div class="servisniDiv">
+		<p class="city">
+			<label for="city">City: </label>
+			<input type="text" name="city" id="city" onkeyup="f()" >
+			
+		</p>
+		<p class="postal">
+			<label for="postal">Postal code: </label>
+			<input type="text" name="postal" id="postal" onkeyup="f()" >
+			
+		</p>
+		</div>
+		
+		
+		<p class="text">
+			<textarea id="ta" name="text" placeholder="Write something to us"></textarea>
+		</p>
+		
+		<p class="submit" >
+		<button id="submit" onclick="return validacija();">Send</button>
+			
+		</p>
+	</form>
+	</div>
+	<div class="mapa">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d367258.1339626932!2d17.830928507135614!3d44.017175197667164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sba!4v1427988695523"></iframe>
+	</div>
+	
+<footer class="footer">Copyright &reg; Haris Spahic 2015
+		<p class="validator">
+					<a href="http://jigsaw.w3.org/css-validator/check/referer">
+						<img style="border:0;width:88px;height:31px"
+							src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+							alt="Valid CSS!" />
+						</a>
+					</p></footer>
