@@ -49,16 +49,6 @@ function validacija(){
         document.getElementById('email').style.background= "transparent";
     }
     
-    
-    if(cekirano){
-        if(!provjeriEmail(femail)){
-        document.getElementById('femailcb').style.background= "rgba(242, 158, 158, 0.58)";
-        return false;
-    }
-    else{
-        document.getElementById('femailcb').style.background= "transparent";
-		}
-    }
     if(!uspjesno){
         document.getElementById("city").style.background = "rgba(242, 158, 158, 0.61)";
         document.getElementById("postal").style.background = "rgba(242, 158, 158, 0.61)";

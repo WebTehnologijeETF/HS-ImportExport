@@ -26,13 +26,20 @@
 				</ul>
 			</li>
 			<li ><a href="summary.html">Summary</a></li>
-			<li class="home"><a href="contact.html">Contact Us</a></li>
+			<li class="home"><a>Contact Us</a></li>
 			
 		</ul>
 	</nav>
 </div>
 	<div id="sadrzaj" class="sadrzaj">	
+		
+<br>
+
+	<!--<div class="mapa">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d367258.1339626932!2d17.830928507135614!3d44.017175197667164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sba!4v1427988695523"></iframe>
+	</div>-->
 	
+
 </div>
 	
 

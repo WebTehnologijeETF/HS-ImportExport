@@ -487,118 +487,28 @@ background-color:darkgreen;
 }
 
 /*------------------contact page-----------------------------*/
-
-
-
-/* ===========================
-   ====== Contact Form ======= 
-   =========================== */
-.form{
-    margin-top: 20px;
-    margin-bottom: 50px;
-    
-}
-input, textarea {
-	padding: 10px;
-	border: 1px solid #E5E5E5;
-	width: 200px;
-	color: #999999;
-	box-shadow: rgba(13, 13, 13, 0.7) 0px 0px 8px;	
-    overflow: hidden;
-}
-#checkbox{
-    overflow: hidden;
-    width: auto;
-}
-
-.cb{
-    margin-top: 00px;
-}
-
-textarea {
-	width: 400px;
-	height: 150px;
-	max-width: 400px;
-	line-height: 18px;
-}
-
-input:hover, textarea:hover,
-input:focus, textarea:focus {
-	border: 1px solid #C9C9C9;
-	box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
-	
-}
-
-.form label {
-	margin-left: 10px;
-	color: #999999;
-}
-
-/* ===========================
-   ====== Submit Button ====== 
-   =========================== */
-
-.submit button {
-	width: 100px; 
-	height: 40px;
-	background-color: #474E69; 
-	color: #FFF;
-	border-radius: 3px;
-	
-}
-
-.form p{
-   
-    display: inline-block;
-    text-align:left;
-    
-}
-
-
-
-#email,#subject, #femailcb{
-    width:330px;
-    text-align: left;
-    overflow: hidden;
-    display: inline-block;
-}
-#femailcb{
-    display: inline-block;
-}
-#name{
-    width:330px;
-    text-align: left;
-}
-
 #forma{
     width: 40%;
     float: left;
-    overflow:auto;
-    padding-right: 5px;
-    display: inline-block;
 }
-#forma p{
+#submit_b{
     float: right;
-    display: inline-block;
-}
-.servisniDiv{
-	
-	height: 100px;
-   
-   display: inline-block;
-    margin-bottom: 0;
-}
-
-.servisniDiv p{
-   display: block;
-    margin: 1px;
-    padding: 1px;
     
+    height: 60px;
+    width: 100px;
+}
+.contakttabela label{
+    float:right;
+}
+.contakttabela input,textarea{
+    float:left;
+    height: 30px;
+    width: 200px;
+    margin: 2px;
 }
 
-
-.submit{
-    float: right;
+.contakttabela textarea{
+    height: 100px;
 }
 
 .mapa{
