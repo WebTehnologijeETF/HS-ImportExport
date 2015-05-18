@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <title>HS_ImportExport - World of import & export</title>
-<link rel="stylesheet" type="text/css" href="/hs-importexport/css/stajl.css">
 </head>
 <body>
 
