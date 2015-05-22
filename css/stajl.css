@@ -606,9 +606,17 @@ iframe{
   background: #ea4c89;
 }
 
+/*--------------------NEWS-------------------------*/
+
+.jedna_novost{
+    border-radius: 5px;
+    background-color: rgba(127, 255, 127, 0.42);
+    text-align: center;
+}
 
 
-
-
+.jedna_novost p{
+    text-align: center;
+}
 
 
