@@ -1,3 +1,6 @@
+<div class='desni_div'>
+
+</div>
 <div id="forma">
         <label>* required field</label>
     <form action="pages/contact_error.php" method="post" class="form">
@@ -20,7 +23,10 @@
         <input id="submit_b" type="submit" name="dodavanje" value="Dodaj">
     </form>
         
-        
+        </div>
+
+<div class='lijevi_div'>
+</div>
     <footer class="footer">Copyright &reg; Haris Spahic 2015
 		<p class="validator">
 					<a href="http://jigsaw.w3.org/css-validator/check/referer">
@@ -29,4 +35,4 @@
 							alt="Valid CSS!" />
 						</a>
 					</p></footer>
-	</div>
+	

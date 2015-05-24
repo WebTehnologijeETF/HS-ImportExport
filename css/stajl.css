@@ -487,10 +487,7 @@ background-color:darkgreen;
 }
 
 /*------------------contact page-----------------------------*/
-#forma{
-    width: 40%;
-    float: left;
-}
+
 #submit_b{
     float: right;
     
@@ -605,18 +602,83 @@ iframe{
   color: white;
   background: #ea4c89;
 }
+#forma{
+    overflow: hidden;
+    position: relative;
+    width: 40%;
+    float:left;
+   
+}
+
+.desni_div{
+    
+    display: inline-block;
+    float: left;
+    width: 30%;
+    height: 100px;
+     
+}
+.lijevi_div{
+    
+    display: inline-block;
+    float:left;
+    width: 30%;
+    height: 100px;
+     
+}
 
 /*--------------------NEWS-------------------------*/
 
 .jedna_novost{
     border-radius: 5px;
     background-color: rgba(127, 255, 127, 0.42);
-    text-align: center;
+    text-align: left;
 }
 
 
 .jedna_novost p{
+    text-align: left;
+}
+
+.pe{
+    text-align: right;
+}
+.ostavljanje_komentara input{
+    float: left;
+    height: auto;
+}
+
+.ostavljanje_komentara textarea{
+    float: left;
+    width:  13em;
+    height: 8em;
+}
+#button_submit{
+    width: 100px;
+    height: 50px;
+}
+
+.tabela_komentari{
+    text-align: left;
+}
+.komentar_zaglavlje{
     text-align: center;
 }
+.broj_komentara{
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

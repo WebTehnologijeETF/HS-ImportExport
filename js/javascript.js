@@ -1,11 +1,4 @@
-
-window.onload = function () {
-    //document.body.style.backgroundColor = "red";
-   otvori("pages/index1.html");
-   document.getElementById('femailcb').style.display="none";
-    
-    
-} 
+ 
 var cekirano=false;
 var uspjesno=false;
 function promjeniboju(el){
@@ -150,5 +143,6 @@ function otvori(stranica){
 	ajax.open("GET", stranica, true);
 	ajax.send();
 }
-
-
+function vratiNaStranicu(stranica){
+	window.open(stranica, window);
+}

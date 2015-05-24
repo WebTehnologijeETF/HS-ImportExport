@@ -68,7 +68,9 @@ if (isset($_REQUEST['email'])){
 	<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d367258.1339626932!2d17.830928507135614!3d44.017175197667164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sba!4v1427988695523"></iframe>
 	</div>-->
 	
-<footer class="footer">Copyright &reg; Haris Spahic 2015
+
+</div>
+	<footer class="footer">Copyright &reg; Hariis Spahic 2015
 		<p class="validator">
 					<a href="http://jigsaw.w3.org/css-validator/check/referer">
 						<img style="border:0;width:88px;height:31px"
@@ -76,8 +78,6 @@ if (isset($_REQUEST['email'])){
 							alt="Valid CSS!" />
 						</a>
 					</p></footer>
-</div>
-	
 
 </body>
 
