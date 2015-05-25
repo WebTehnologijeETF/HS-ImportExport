@@ -9,7 +9,7 @@
 <body id='tijelo'>
  <?php 
 	$root = $_SERVER['DOCUMENT_ROOT'];
-	include('../inc/header.html');
+	include($root.'/hs-importexport/inc/header.html');
 	?>
 <div id="sadrzaj" class="sadrzaj">
  <h2 class='komentar_zaglavlje'>NEWS AND COMMENTS</h2>
@@ -57,7 +57,7 @@
 		  $brojac++;
           print  "<table class='tabela_komentari' id='".$brojac."'><tr><td><small>Date: ".date("d.m.Y. (h:i)", $komentar['vrijeme2'])."</small></td></tr>".
                  "<tr><td><small>Autor: ".$komentar['autor']."</small></td></tr>".
-				 "<tr><td><small>Email: <a href=''>".$komentar['email']."</a></td></tr></small>".
+				 "<tr><td><small>Email: <a href='mailto:".$komentar['email']."'>".$komentar['email']."</a></td></tr></small>".
                  "<tr><td><p>Comment: ".$komentar['tekst']."</p></td></tr>".
 				 "<tr><td><p class='broj_komentara'>Comment #".$brojac."</p></td></tr>".
 				 

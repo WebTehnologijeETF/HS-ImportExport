@@ -4,8 +4,8 @@
     
     <meta charset="UTF-8" />
     <title>HS_ImportExport - World of import &amp; export</title>
-    <link rel="stylesheet" type="text/css" href="../css/stajl.css" />
-    <script src="../js/javascript.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/stajl.css" />
+    <script src="js/javascript.js"></script>
   </head>
   <body >
   <?php  
@@ -51,7 +51,7 @@
 						"<small>Posted ".date("d.m.Y. (h:i)", $vijest['vrijeme2'])." by ".$vijest['autor']."</small>".
 						"<p>".$vijest['tekst']."</p>";
 						$rezultatKomentari = $veza->query("SELECT COUNT(*) FROM komentar WHERE vijest= ".$vijest['id']);
-				   print "<a href='../pages/novost.php?id=".$vijest['id']."'>".$rezultatKomentari->fetchcolumn()." komentara</a>";
+				   print "<a href='pages/single_news.php?id=".$vijest['id']."'>".$rezultatKomentari->fetchcolumn()." komentara</a>";
 				   print "</div>";//
 	 }
 		 

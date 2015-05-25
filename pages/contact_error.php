@@ -7,8 +7,14 @@
 <link rel="stylesheet" type="text/css" href="../css/stajl.css">
 </head>
 <body>
+<?php 
+	$root = $_SERVER['DOCUMENT_ROOT'];
+	include("../inc/header.html");
+        ?>
 
+		<div class='desni_div'>
 
+</div>
 <div id="sadrzaj" class="sadrzaj">	
 <p>Proba</p>
 		<div id="forma">
@@ -72,15 +78,13 @@
     <form action="contact_error.php" method="post" class="form">
     <table class="contakttabela">
         
-        <tr><td><label>*Name:</label></td><td>  <input type="text" name="name" id="name" value="
+        <tr><td><label>*Name:</label></td><td>  <input type="text" name="name" id="name" value='
 		<?php
 		if(isset($_REQUEST['$name_'])){
 			echo $name_; 
 		}
-		?>
-		
-		">
-		<br><span class="error"><?php echo $nameError;?> </span>
+		?>'>
+		<br><span class='error'><?php echo $nameError;?> </span>
 		</td></tr>
 		<tr><td><label>Phone:</label></td><td> <input type="tel" name="phone" id="phone" placeholder="1234567"></td></tr>
         <tr><td><label>*Email:</label></td><td> <input type="text" name="email" id="email" placeholder="mail@example.com" value="">
