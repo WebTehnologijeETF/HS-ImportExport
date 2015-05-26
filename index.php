@@ -11,7 +11,6 @@
     <?php 
 	
 	$root = $_SERVER['DOCUMENT_ROOT'];
-	echo realpath(dirname(__FILE__));
 	include("inc/header.html");
 	
         echo "<script type='text/javascript'>".

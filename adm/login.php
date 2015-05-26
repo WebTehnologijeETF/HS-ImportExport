@@ -13,7 +13,7 @@
 <div class="login-card">
 
     <h1>Login</h1><br>
-	  <form action='login.php' method='post'>
+	  <form action='news_managment.php' method='post'>
 		<input type="text" name="user" placeholder="Username">
 		<input type="password" name="pass" placeholder="Password">
 		<input type="submit" name="login" class="login login-submit" value="login">

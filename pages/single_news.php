@@ -39,10 +39,6 @@
        $veza->exec("set names utf8");
        $rezultat = $veza->query("select id, naslov, tekst, UNIX_TIMESTAMP(vrijeme) vrijeme2, autor from vijest where id=".$_GET['id']);
        foreach ($rezultat as $vijest) {
-         /* print "<h1>".$vijest['naslov']."</h1>".
-      "<small>".$vijest['autor']."</small>".
-      "<p>".$vijest['tekst']."</p>".
-      "<small>".date("d.m.Y. (h:i)", $vijest['vrijeme2'])."</small><br>";*/
 	   print "<div class='jedna_novost'>";
           print "<h1>".$vijest['naslov']."</h1>".
       "<small>Posted ".date("d.m.Y. (h:i)", $vijest['vrijeme2'])." by ".$vijest['autor']."</small>".
