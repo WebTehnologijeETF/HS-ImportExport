@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8" />
 <title>Dashboard | Modern Admin</title>
 <link rel="stylesheet" type="text/css" href="css/960.css" />
 <link rel="stylesheet" type="text/css" href="css/reset.css" />
@@ -14,29 +14,16 @@
 <body>
 <!-- WRAPPER START -->
 <div class="container_16" id="wrapper">	
-    	<!--LOGO-->
-	<div class="grid_8" id="logo">HS Export-Import: Website Administration</div>
-    <div class="grid_8">
-<!-- USER TOOLS START -->
-      <div id="user_tools"><span>Welcome <a href="#">Admin Username</a>  |  <input type="button" value="Logout"></span></div>
-    </div>
-<!-- USER TOOLS END -->    
-<div class="grid_16" id="header">
-<!-- MENU START -->
-<div id="menu">
-	<ul class="group" id="menu_group_main">
-		<li class="item first" id="one"><a href="#" class="main current"><span class="outer"><span class="inner dashboard">Panel</span></span></a></li>
-               
-    </ul>
-</div>
-<!-- MENU END -->
-</div>
+<?php
+		include("../adm/inc/adm_header.php");
+	?>
 <div class="grid_16">
 <!-- TABS START -->
     <div id="tabs">
          <div class="container">
             <ul>
                       <li><a href="news_managment.php"><span>News managment</span></a></li>
+					  <li><a href="comments_managment.php" ><span>Comments managment</span></a></li>
                       <li><a href="users_managment.php" class="current"><span>Users managment</span></a></li>            
            </ul>
         </div>
@@ -64,57 +51,125 @@
 		<div class="portlet-header">Add a news</div>
 
 		<div class="portlet-content">
-		  <form id="form1" name="form1" method="post" action="">
-			<label>Username:</label>
-			<input type="text" name="naslov_novosti" id="naslov_novosti" class="smallInput">
-		    <label>Password:</label>
-			<input type="text" name="naslov_novosti" id="naslov_novosti" class="smallInput">
-			 <label>Email address:</label>
-			<input type="text" name="naslov_novosti" id="naslov_novosti" class="smallInput">
-			  <label>Type(Admin,Editor..):</label>
-			<input type="text" name="naslov_novosti" id="naslov_novosti" class="smallInput">
-			 <br>
-            <input type="button" name="reset" value="Add a user" >
-			<input type="button" name="reset" value="Change" >			
-		  </form>
-		  <p>&nbsp;</p>
+		  
 		</div>
         </div>
 	
 	<!--THIS IS A WIDE PORTLET-->
-    <div class="portlet">
-        <div class="portlet-header fixed"><img src="images/icons/user.gif" width="16" height="16" alt="Latest Registered Users" /> Last Registered users Table Example</div>
-		<div class="portlet-content nopadding">
-        <form action="" method="post">
-          <table width="100%" cellpadding="0" cellspacing="0" id="box-table-a" summary="Employee Pay Sheet">
+	<?php
+	if(isset($_REQUEST['add_user']) && $_REQUEST['username']!='' && $_REQUEST['password']!='' && $_REQUEST['type']!='' && $_REQUEST['email']!=''){
+				$veza = new PDO("mysql:dbname=wt8;host=localhost;charset=utf8", "wt8user", "wt8pass");
+				$veza->exec("set names utf8");
+				$rezultat = $veza->query("insert korisnici SET korisnik='".htmlEntities($_REQUEST['username'])."', sifra='".htmlEntities($_REQUEST['password']).
+				"', tip='".htmlEntities($_REQUEST['type'])."', email='".htmlEntities($_REQUEST['email'])."'");
+				if (!$rezultat) {
+				  $greska = $veza->errorInfo();
+				  print "SQL greška: " . $greska[2];
+				  exit();
+				}else{
+					echo "<script type='text/javascript'>alert('User successfully added');</script>";
+				}
+	}
+	if(isset($_REQUEST['delete'])){
+				$veza = new PDO("mysql:dbname=wt8;host=localhost;charset=utf8", "wt8user", "wt8pass");
+				$veza->exec("set names utf8");
+				$rezultat = $veza->query("delete from korisnici where id=".htmlEntities($_REQUEST['id_user'])."");
+				if (!$rezultat) {
+				  $greska = $veza->errorInfo();
+				  print "SQL greška: " . $greska[2];
+				  exit();
+				}else{
+					echo "<script type='text/javascript'>alert('User successfully deleted');</script>";
+				}
+	}
+	if(isset($_REQUEST['edit'])){
+				$veza = new PDO("mysql:dbname=wt8;host=localhost;charset=utf8", "wt8user", "wt8pass");
+				$veza->exec("set names utf8");
+				$rezultat = $veza->query("select id, korisnik, email, sifra, tip from korisnici where id=".htmlEntities($_REQUEST['id_user'])."");
+				if (!$rezultat) {
+				  $greska = $veza->errorInfo();
+				  print "SQL greška: " . $greska[2];
+				  exit();
+				}
+				foreach ($rezultat as $vijest) {
+				print "<form id='form1' name='form1' method='post' action=''>
+		    <label>Username:</label>
+			<input type='text' name='username' id='username' class='smallInput' value='".$vijest['korisnik']."'>
+		    <label>Password:</label>
+			<input type='text' name='password' id='password' class='smallInput' value='".$vijest['sifra']."'>
+			 <label>Email address:</label>
+			<input type='text' name='email' id='email' class='smallInput' value='".$vijest['email']."'>
+			  <label>Type(1=Admin,2=Editor):</label>
+			<input type='text' name='type' id='type' class='smallInput' value='".$vijest['tip']."'>
+			<br>
+			<input id='change_button' name='change' type='submit' value='Save changes' >
+			<input id='reset_button' name='reset' type='submit' value='Reset' >
+		  </form><br>";
+				}
+			 }else{
+				 print "<form id='form1' name='form1' method='post' action=''>
+			<label>Username:</label>
+			<input type='text' name='username' id='username' class='smallInput'>
+		    <label>Password:</label>
+			<input type='text' name='password' id='password' class='smallInput'>
+			 <label>Email address:</label>
+			<input type='text' name='email' id='email' class='smallInput'>
+			  <label>Type(1=Admin,2=Editor):</label>
+			<input type='text' name='type' id='type' class='smallInput'>
+			 <br>
+            <input type='submit' name='add_user' value='Add a user' >
+			<input type='submit' name='change' value='Change' >			
+		  </form><br>";
+			 }
+			 
+			 
+	if(true){
+				$veza = new PDO("mysql:dbname=wt8;host=localhost;charset=utf8", "wt8user", "wt8pass");
+				$veza->exec("set names utf8");
+				$rezultat = $veza->query("select id, korisnik, email, sifra, tip from korisnici order by id");
+				if (!$rezultat) {
+				  $greska = $veza->errorInfo();
+				  print "SQL greška: " . $greska[2];
+				  exit();
+				}
+				print "<div class='portlet'>
+        <div class='portlet-header fixed'><img src='images/icons/user.gif' width='16' height='16' alt='Latest Registered Users' /> Last Registered users | 1=admin,2=editor</div>
+		<div class='portlet-content nopadding'>
+        
+          <table width='100%' cellpadding='0' cellspacing='0' id='box-table-a' summary='Employee Pay Sheet'>
             <thead>
               <tr>
-                <th width="150" scope="col">Username</th>
-                <th width="150" scope="col">Password</th>
-                <th width="150" scope="col">Email</th>
-                <th width="150" scope="col">Type</th>
+                <th width='150' scope='col'>Username</th>
+                <th width='150' scope='col'>Password</th>
+                <th width='150' scope='col'>Email</th>
+                <th width='150' scope='col'>Type</th>
               </tr>
-            </thead>
-            <tbody>
-              <tr>
-                
-                <td>admin</td>
-                <td>****</td>
-                <td>admin@admin.com</td>
-                <td>admin</td>
-                <td width="90"><a href="#" class="approve_icon" title="Approve"></a> <a href="#" class="reject_icon" title="Reject"></a> <a href="#" class="edit_icon" title="Edit"></a> <a href="#" class="delete_icon" title="Delete"></a></td>
-              </tr>
-            </tbody>
-          </table>
-        </form>
-		</div>
-      </div>   
+            </thead><tbody>
+            ";
+			$brojac=0;
+	  foreach ($rezultat as $vijest) {
+		  print "<tr><form action='?id=".$vijest['id']."' method='post'><td>".$vijest['korisnik']."</td>
+                <td>".$vijest['sifra']."</td>
+                <td>".$vijest['email']."</td>
+                <td>".$vijest['tip']."</td>
+                <td width='90'>
+				<input type='hidden' name='id_user' value='".$vijest['id']."'>
+				<input type='submit' name='edit' value='Edit'>
+				<input type='submit' name='delete' value='Delete'></td>
+              </form></tr>";
+	  }
+	  print "</tbody></table></div></div>";
+				
+	}else{
+		
+	}
+	?>
 <!--  END #PORTLETS -->  
    </div>
-    <div class="clear"> </div>
+    <div class='clear'> </div>
 <!-- END CONTENT-->    
   </div>
-<div class="clear"> </div>
+<div class='clear'> </div>
 
 
 		
@@ -126,9 +181,8 @@
 		</div>
 </div>
 <!-- WRAPPER END -->
-<!-- FOOTER START -->
-<div class="container_16" id="footer">
-	Copyright &reg Haris Spahic 2015</div>
-<!-- FOOTER END -->
+<?php
+		include("../adm/inc/adm_footer.php");
+	?>
 </body>
 </html>

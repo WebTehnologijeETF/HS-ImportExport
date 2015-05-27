@@ -603,3 +603,11 @@ border: 1px solid #AAAAAA !important;
 background:#000 !important;
 opacity:0.7 !important;
 }
+
+.quote{
+margin:10px;
+padding-left:10px;
+overflow:hidden;
+	height:auto;
+	width:auto;
+}
