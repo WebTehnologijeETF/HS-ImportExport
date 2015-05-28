@@ -1,3 +1,11 @@
+
+<?php 
+require '../opt/opt.php';
+session_start();
+if (!isset($_SESSION['username']) || $_SESSION['type']!="adm"){
+	header("Location: /hs-importexport/adm/login.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,7 +68,7 @@
 		<?php
 
 			if(isset($_REQUEST['delete'])){
-				$veza = new PDO("mysql:dbname=wt8;host=localhost;charset=utf8", "wt8user", "wt8pass");
+				$veza = new PDO($c_string, $root, $pass);
 				$veza->exec("set names utf8");
 				$rezultat = $veza->query("delete from komentar where id=".htmlEntities($_REQUEST['id_vijesti'])."");
 				if (!$rezultat) {
@@ -83,7 +91,7 @@
     <!--THIS IS A WIDE PORTLET-->
 	<?php
 	if(true){
-	$veza = new PDO("mysql:dbname=wt8;host=localhost;charset=utf8", "wt8user", "wt8pass");
+				$veza = new PDO($c_string, $root, $pass);
 				$veza->exec("set names utf8");
 				$rezultat = $veza->query("select id, vijest, tekst, UNIX_TIMESTAMP(vrijeme) vrijeme2, autor, email from komentar order by vrijeme desc");
 				if (!$rezultat) {

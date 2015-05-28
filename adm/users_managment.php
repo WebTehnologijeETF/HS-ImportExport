@@ -1,3 +1,10 @@
+<?php 
+session_start();
+if (!isset($_SESSION['username']) || $_SESSION['type']!="adm"){
+	header("Location: /hs-importexport/adm/login.php");
+}
+include '../opt/opt.php';
+?>
 <!DOCTYPE html>
 <html><head>
 <meta charset="UTF-8" />
@@ -57,11 +64,11 @@
 	
 	<!--THIS IS A WIDE PORTLET-->
 	<?php
-	if(isset($_REQUEST['add_user']) && $_REQUEST['username']!='' && $_REQUEST['password']!='' && $_REQUEST['type']!='' && $_REQUEST['email']!=''){
+	if(isset($_REQUEST['add_user']) && $_REQUEST['username']!='' && $_REQUEST['password']!='' && $_REQUEST['email']!=''){
 				$veza = new PDO("mysql:dbname=wt8;host=localhost;charset=utf8", "wt8user", "wt8pass");
 				$veza->exec("set names utf8");
 				$rezultat = $veza->query("insert korisnici SET korisnik='".htmlEntities($_REQUEST['username'])."', sifra='".htmlEntities($_REQUEST['password']).
-				"', tip='".htmlEntities($_REQUEST['type'])."', email='".htmlEntities($_REQUEST['email'])."'");
+				"', tip='".htmlEntities($_REQUEST['tip_korisnika'])."', email='".htmlEntities($_REQUEST['email'])."'");
 				if (!$rezultat) {
 				  $greska = $veza->errorInfo();
 				  print "SQL greška: " . $greska[2];
@@ -73,7 +80,7 @@
 	if(isset($_REQUEST['delete'])){
 				$veza = new PDO("mysql:dbname=wt8;host=localhost;charset=utf8", "wt8user", "wt8pass");
 				$veza->exec("set names utf8");
-				$rezultat = $veza->query("delete from korisnici where id=".htmlEntities($_REQUEST['id_user'])."");
+				$rezultat = $veza->query("delete from korisnici where korisnik='".htmlEntities($_REQUEST['id_user'])."'");
 				if (!$rezultat) {
 				  $greska = $veza->errorInfo();
 				  print "SQL greška: " . $greska[2];
@@ -85,7 +92,7 @@
 	if(isset($_REQUEST['edit'])){
 				$veza = new PDO("mysql:dbname=wt8;host=localhost;charset=utf8", "wt8user", "wt8pass");
 				$veza->exec("set names utf8");
-				$rezultat = $veza->query("select id, korisnik, email, sifra, tip from korisnici where id=".htmlEntities($_REQUEST['id_user'])."");
+				$rezultat = $veza->query("select korisnik, email, sifra, tip from korisnici where korisnik='".htmlEntities($_REQUEST['id_user'])."'");
 				if (!$rezultat) {
 				  $greska = $veza->errorInfo();
 				  print "SQL greška: " . $greska[2];
@@ -98,10 +105,21 @@
 		    <label>Password:</label>
 			<input type='text' name='password' id='password' class='smallInput' value='".$vijest['sifra']."'>
 			 <label>Email address:</label>
-			<input type='text' name='email' id='email' class='smallInput' value='".$vijest['email']."'>
-			  <label>Type(1=Admin,2=Editor):</label>
-			<input type='text' name='type' id='type' class='smallInput' value='".$vijest['tip']."'>
-			<br>
+			<input type='text' name='email' id='email' class='smallInput' value='".$vijest['email']."'>";
+			  
+			  if($vijest['tip']=="adm"){
+				  print "<label>Type:</label><select>
+  <option value='adm' selected>Admin</option>
+  <option value='edit'>Editor</option>
+</select><br>";
+			  }else{
+				  print "<label>Type:</label><select>
+  <option value='adm'>Admin</option>
+  <option value='edit' selected>Editor</option>
+</select><br>";
+			  }
+ 
+			print "<br>
 			<input id='change_button' name='change' type='submit' value='Save changes' >
 			<input id='reset_button' name='reset' type='submit' value='Reset' >
 		  </form><br>";
@@ -114,9 +132,10 @@
 			<input type='text' name='password' id='password' class='smallInput'>
 			 <label>Email address:</label>
 			<input type='text' name='email' id='email' class='smallInput'>
-			  <label>Type(1=Admin,2=Editor):</label>
-			<input type='text' name='type' id='type' class='smallInput'>
-			 <br>
+			  <label>Type:</label><select name='tip_korisnika'>
+  <option value='adm' selected>Admin</option>
+  <option value='edit'>Editor</option>
+</select><br><br>
             <input type='submit' name='add_user' value='Add a user' >
 			<input type='submit' name='change' value='Change' >			
 		  </form><br>";
@@ -126,7 +145,7 @@
 	if(true){
 				$veza = new PDO("mysql:dbname=wt8;host=localhost;charset=utf8", "wt8user", "wt8pass");
 				$veza->exec("set names utf8");
-				$rezultat = $veza->query("select id, korisnik, email, sifra, tip from korisnici order by id");
+				$rezultat = $veza->query("select korisnik, email, sifra, tip from korisnici order by korisnik");
 				if (!$rezultat) {
 				  $greska = $veza->errorInfo();
 				  print "SQL greška: " . $greska[2];
@@ -148,12 +167,12 @@
             ";
 			$brojac=0;
 	  foreach ($rezultat as $vijest) {
-		  print "<tr><form action='?id=".$vijest['id']."' method='post'><td>".$vijest['korisnik']."</td>
+		  print "<tr><form action='?id=".$vijest['korisnik']."' method='post'><td>".$vijest['korisnik']."</td>
                 <td>".$vijest['sifra']."</td>
                 <td>".$vijest['email']."</td>
                 <td>".$vijest['tip']."</td>
                 <td width='90'>
-				<input type='hidden' name='id_user' value='".$vijest['id']."'>
+				<input type='hidden' name='id_user' value='".$vijest['korisnik']."'>
 				<input type='submit' name='edit' value='Edit'>
 				<input type='submit' name='delete' value='Delete'></td>
               </form></tr>";

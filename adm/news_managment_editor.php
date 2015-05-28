@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if (!isset($_SESSION['username']) || $_SESSION['type']!="adm"){
+if (!isset($_SESSION['username'])){
 	header("Location: /hs-importexport/adm/login.php");
 }
 include '../opt/opt.php';
@@ -28,47 +28,6 @@ include '../opt/opt.php';
 
 include("../adm/inc/adm_header.php");
 
-
-if (isset($_REQUEST['username']) && $_REQUEST['username']!='' && isset($_REQUEST['password']) && $_REQUEST['password']!='') {
-	$veza = new PDO($c_string, $root, $pass);
-	$veza->exec("set names utf8");
-	$username = $_REQUEST['username'];
-    $password = $_REQUEST['password'];
-    $upit = $veza->prepare("SELECT * FROM korisnici WHERE korisnik=? and sifra=?"); //ubaci neku enkripciju
-    $upit->execute(array($username,$password));
-		foreach ($upit as $vijest) {
-			if($vijest['korisnik']==$username){
-				$_SESSION['username'] = $username;
-				
-			}
-		}
-}
-
-
-   if (isset($_SESSION['username'])){
-   	$veza = new PDO($c_string, $root, $pass);
-	$veza->exec("set names utf8");
-	$u = $_SESSION['username'];
-
-	$upit = $veza->prepare("SELECT * FROM korisnici WHERE korisnik=:u");
-    $upit->bindValue(":u", $u, PDO::PARAM_STR);
-    $upit->execute();
-    $tip= ($upit->fetch()['tip']);
-
-   		echo "<script type='text/javascript'>
- 			document.getElementById('username_').text='".$tip."';
-		</script>";
-		echo "<script type='text/javascript'>
- 			document.getElementsByClassName('za_admin').style.display = 'none';
-		</script>";
-
-	   if($tip == "adm"){//admin panel
-		   print "";
-	   }else if($tip=="edit"){//editor panel
-		  
-	   }
-}
-
 ?>
 
 
@@ -79,9 +38,7 @@ if (isset($_REQUEST['username']) && $_REQUEST['username']!='' && isset($_REQUEST
     <div id="tabs">
          <div class="container">
             <ul>
-                      <li><a href="news_managment.php" class="current"><span>News managment</span></a></li>
-					  <li ><a href="comments_managment.php" ><span>Comments managment</span></a></li>
-                      <li ><a href="users_managment.php"><span>Users managment</span></a></li>         
+                      <li><a href="news_managment_editor.php" class="current"><span>News managment</span></a></li>  
            </ul>
         </div>
     </div>
@@ -114,7 +71,9 @@ if (isset($_REQUEST['username']) && $_REQUEST['username']!='' && isset($_REQUEST
 		<div class="portlet-content">
 		
 		
-		<?php 			
+		<?php 
+		
+			
 			if(isset($_REQUEST['publish']) && $_REQUEST['naslov_novosti']!='' && $_REQUEST['textarea']!='' ){
 				
 				$veza = new PDO($c_string, $root, $pass);
@@ -123,7 +82,7 @@ if (isset($_REQUEST['username']) && $_REQUEST['username']!='' && isset($_REQUEST
 				$timestamp = date('Y-m-d G:i:s');
 		   $ubacivanje = $veza->query("insert vijest SET vrijeme='$timestamp', naslov='".htmlEntities($_REQUEST['naslov_novosti'],ENT_QUOTES).
 		   "', tekst='".htmlEntities($_REQUEST['textarea'],ENT_QUOTES).
-		   "', autor='admin'");
+		   "', autor='".$_SESSION['username']."'");
 		   if (!$ubacivanje) {
 				  $greska = $veza->errorInfo();
 				  print "SQL greška: " . $greska[2];
@@ -208,7 +167,6 @@ if (isset($_REQUEST['username']) && $_REQUEST['username']!='' && isset($_REQUEST
 
 		<div class="portlet-content">
 		<?php
-		include '../opt/opt.php';
 				$veza = new PDO($c_string, $root, $pass);
 				$veza->exec("set names utf8");
 				$rezultat = $veza->query("select id, vijest, tekst, UNIX_TIMESTAMP(vrijeme) vrijeme2, autor, email from komentar order by vrijeme desc");
@@ -236,7 +194,7 @@ if (isset($_REQUEST['username']) && $_REQUEST['username']!='' && isset($_REQUEST
 	if(true){
 				$veza = new PDO($c_string, $root, $pass);
 				$veza->exec("set names utf8");
-				$rezultat = $veza->query("select id, naslov, tekst, UNIX_TIMESTAMP(vrijeme) vrijeme2, autor from vijest order by vrijeme desc");
+				$rezultat = $veza->query("select id, naslov, tekst, UNIX_TIMESTAMP(vrijeme) vrijeme2, autor from vijest where autor='".$_SESSION['username']."' order by vrijeme desc");
 				if (!$rezultat) {
 				  $greska = $veza->errorInfo();
 				  print "SQL greška: " . $greska[2];

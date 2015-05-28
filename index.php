@@ -9,8 +9,6 @@
   </head>
   <body >
     <?php 
-	
-	$root = $_SERVER['DOCUMENT_ROOT'];
 	include("inc/header.html");
 	
         echo "<script type='text/javascript'>".
